@@ -48,24 +48,35 @@ const map = function (collection, iterator) {
 // \\ // \\ // \\ // \\ //
 
 const filter = function (collection, callback) {
-  //reject([1, 2, 3, 4, 5, 6], isEven);
-  //callback = isEven
   let result = [];
-  
-  each(collection), function(value) {
-    if(callback(value)) {
+  each(collection, function (value) {
+    if (callback(value)) {
       result.push(value);
     }
-  };
+  });
   return result;
 };
+
+//error in with parentheses below: 
+// const filter = function (collection, callback) {
+//   //reject([1, 2, 3, 4, 5, 6], isEven);
+//   //callback = isEven
+//   let result = [];
+  
+//   each(collection), function(value) {
+//     if(callback(value)) {
+//       result.push(value);
+//     }
+//   };
+//   return result;
+// };
 
 // \\ // \\ // \\ // \\ //
 
 const reject = function (collection, callbackTest) {
   //this is the two-liner version of solution down below
   return filter(collection, function (value) {
-    return !callbackTest(value); //this makes this callesbackTest false, meaning the loop is not true (not even), then it returns the array with the pushed the result
+    return !callbackTest(value); //this makes this callbackTest false, meaning the loop is not true (not even), then it returns the array with the pushed the result
   });
 }; 
 
